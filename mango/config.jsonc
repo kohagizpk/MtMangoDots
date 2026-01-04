@@ -1,0 +1,122 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", 
+    "position": "top", 
+    "height": 30,
+    "spacing": 0,
+
+    // Choose the order of the modules
+    "modules-left": [
+        "dwl/tags",
+	"custom/sep",
+	"pulseaudio#mic",
+	"custom/sep",
+	"backlight",
+	"custom/sep",
+	"pulseaudio#audio",
+	"custom/sep",
+	"temperature",
+	"custom/sep",
+	"custom/power"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+	"tray",
+	"custom/sep",
+        "network",
+        "custom/sep",
+        "battery",
+        "custom/sep",
+        "cpu",
+        "custom/sep",
+        "memory",
+        "custom/sep",
+        "clock"
+    ],
+
+    // Modules configuration
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+	"format": "{:%H:%M:%S}",
+        "format-alt": "{:%d-%m-%Y}",
+	"interval": 1
+    },
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "RAM: {used}GB"
+    },
+    "disk": {
+        "interval": 60,
+        "path": "/",
+        "format": "Disk: {free}"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{icon} {time}",
+        "format-time": "{H}:{M}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format": "On 󱘖",
+        "format-disconnected": "Off ⚠"
+    },
+        "temperature": {
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰖔", "󰖨"]
+    },
+        "pulseaudio#audio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+	}
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l  ~/.config/mango/wlogout/layout  -b 6 --protocol layer-shell"
+    },
+   "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-source": " On",
+    "format-source-muted": " Off",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      },
+    "custom/sep": {
+        "format" : "|",
+        "interval" : 0
+    }
+}

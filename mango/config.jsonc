@@ -2,7 +2,7 @@
 {
     "layer": "top", 
     "position": "top", 
-    "height": 30,
+    "height": 20,
     "spacing": 0,
 
     // Choose the order of the modules
@@ -16,13 +16,12 @@
 	"pulseaudio#audio",
 	"custom/sep",
 	"temperature",
-	"custom/sep",
-	"custom/power"
+	"custom/sep"
     ],
     "modules-center": [
+	"tray"
     ],
     "modules-right": [
-	"tray",
 	"custom/sep",
         "network",
         "custom/sep",
@@ -107,7 +106,7 @@
     "custom/power": {
         "format": "",
         "tooltip": false,
-        "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l  ~/.config/mango/wlogout/layout  -b 6 --protocol layer-shell"
+        "on-click": "wlogout"
     },
    "pulseaudio#mic": {
     "format": "{format_source}",

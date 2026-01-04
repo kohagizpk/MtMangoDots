@@ -111,8 +111,8 @@ button:hover {
 }
 
 #custom-power {
-    font-size: 22px;
-    min-width: 30px;
+    font-size: 20px;
+    min-width: 20px;
     color: @white;
 }
 
